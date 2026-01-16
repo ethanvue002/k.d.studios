@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K&D Studios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="https://instagram.com/k.d.studios/" target="_blank" class="nav-link">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" class="nav-link">TikTok</a>
+    </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="logo-container">
+            <img src="./images/K&D.jpg" alt="K&D Studios" id="logo-img">
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Video Production</h3>
+                <p>From concept to final cut, we bring your vision to life with cinematic storytelling and professional production quality.</p>
+            </div>
+            <div class="service-card">
+                <h3>Photography</h3>
+                <p>Capturing moments that matter with artistic composition and technical excellence for brands and events.</p>
+            </div>
+            <div class="service-card">
+                <h3>Content Creation</h3>
+                <p>Engaging social media content tailored for Instagram, TikTok, and beyond to grow your digital presence.</p>
+            </div>
+            <div class="service-card">
+                <h3>Brand Development</h3>
+                <p>Building cohesive visual identities that resonate with your audience and elevate your brand story.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motto Section -->
+    <section class="clients">
+        <h2 class="section-title">Social Storytelling For People with Something to Say</h2>
+        <div class="motto-content">
+            <p class="motto-description">We believe every brand, creator, and visionary has a unique story worth telling. Our mission is to amplify your voice through powerful visual content that resonates, engages, and inspires action across social platforms.</p>
+        </div>
+    </section>
+
+    <!-- Social/B-Roll Section -->
+    <section class="social-section">
+        <h2 class="section-title">Our Work</h2>
+        <div class="video-grid">
+    <div class="video-container">
+    <span class="placeholder-icon">📹</span>
+    <video class="media-content" autoplay loop muted playsinline>
+        <source src="./videos/video1.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-container">
+    <span class="placeholder-icon">🎬</span>
+    <video class="media-content" autoplay loop muted playsinline>
+        <source src="./videos/video2.mp4" type="video/mp4">
+    </video>
+</div>
+    <div class="video-container">
+        <span class="placeholder-icon">📸</span>
+        <img class="media-content" src="./images/web1.jpg" alt="Photography work">
+    </div>
+</div>
+        <div class="social-links">
+            <a href="https://instagram.com/k.d.studios/" class="social-link" target="_blank">
+                📷 Instagram
+            </a>
+            <a href="https://tiktok.com" class="social-link" target="_blank">
+                🎵 TikTok
+            </a>
+        </div>
+    </section>
+
+   <!-- Meet Us Section -->
+<section class="meet-us" id="about">
+    <h2 class="section-title">Meet The Team</h2>
+    <div class="team-grid">
+        <div class="team-member">
+            <div class="team-photo">
+                <img src="./images/kyle.JPEG" alt="K - Creative Director">
+            </div>
+            <h3>Kyle</h3>
+            <p>Creative Director & Cinematographer with a passion for visual storytelling and innovative production techniques.</p>
+        </div>
+        <div class="team-member">
+            <div class="team-photo">
+                <img src="./images/andrew.jpg" alt="D - Lead Producer">
+            </div>
+            <h3>Drew</h3>
+            <p>Lead Producer & Photographer specializing in brand development and capturing authentic moments.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2 class="section-title">Let's Create Together</h2>
+            <form onsubmit="handleSubmit(event)">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <input type="text" placeholder="Subject">
+                <textarea placeholder="Tell us about your project..." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
