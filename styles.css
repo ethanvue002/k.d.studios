@@ -310,7 +310,7 @@ body {
     margin: 0 auto 60px;
 }
 
-.video-placeholder {
+.video-container {
     aspect-ratio: 9/16;
     background: linear-gradient(135deg, #ADA9A5 0%, #544741 100%);
     border-radius: 12px;
@@ -319,18 +319,61 @@ body {
     justify-content: center;
     font-size: 48px;
     color: #F5E6D3;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
     transition: transform 0.3s ease;
     opacity: 0;
     transform: translateY(30px);
 }
 
-.video-placeholder.visible {
+.video-container.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-.video-placeholder:hover {
+.video-container:hover {
     transform: translateY(-5px) scale(1.02);
+}
+
+/* Film overlay that stays visible */
+.video-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(245, 230, 211, 0.4); /* Translucent beige film */
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.video-container:hover::before {
+    opacity: 0;
+}
+
+.placeholder-icon {
+    position: absolute;
+    z-index: 2;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.video-container:hover .placeholder-icon {
+    opacity: 0;
+}
+
+.media-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 1; /* Always visible, just behind the film */
 }
 
 .social-links {
@@ -393,10 +436,25 @@ body {
     background: linear-gradient(135deg, #544741 0%, #F5E6D3 100%);
     margin: 0 auto 30px;
     transition: transform 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .team-member:hover .team-photo {
     transform: scale(1.05);
+}
+
+.team-member:hover .team-photo img {
+    transform: scale(1.1);
 }
 
 .team-member h3 {

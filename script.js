@@ -61,9 +61,9 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all animated elements
-document.querySelectorAll('.section-title, .service-card, .client-logo, .video-placeholder, .team-member, .motto-description').forEach(el => {
+document.querySelectorAll('.section-title, .service-card, .client-logo, .video-container, .team-member, .motto-description').forEach(el => {
     observer.observe(el);
-});
+});SS
 
 // Form submission handler
 function handleSubmit(e) {
@@ -81,4 +81,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             target.scrollIntoView({ behavior: 'smooth' });
         }
     });
+});
+
+// Auto-play videos immediately on page load
+document.querySelectorAll('.video-container').forEach(container => {
+    const video = container.querySelector('video');
+    if (video) {
+        // Try to play immediately
+        video.play().catch(err => {
+            console.log('Autoplay failed, trying again on user interaction:', err);
+            // If autoplay fails, try again on first user interaction
+            document.addEventListener('click', () => {
+                video.play().catch(e => console.log('Still failed:', e));
+            }, { once: true });
+        });
+        
+        // Also try to play when video becomes visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(err => console.log('Video play failed:', err));
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(container);
+        
+        // Ensure video keeps playing
+        video.addEventListener('pause', () => {
+            if (!video.ended) {
+                video.play().catch(err => console.log('Resume failed:', err));
+            }
+        });
+    }
 });
